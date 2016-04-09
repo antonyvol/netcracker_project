@@ -5,3 +5,15 @@ body {
     font-size: small;
     margin: 8px;
 }
+
+.car-form {
+    width: 30%;
+}
+
+.owner-form {
+    width: 30%;
+}
+
+.sell-form {
+    width: 30%;
+}
