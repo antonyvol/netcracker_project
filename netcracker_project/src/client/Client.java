@@ -13,33 +13,40 @@ public class Client implements EntryPoint {
     public void onModuleLoad() {
         final String TEXTBOX_LENGTH = "220";
 
-        // форма добавления автомобиля в базу
+        // --------------------------------------------------------------------
+        // форма добавления автомобиля
         final FormPanel carAddForm = new FormPanel();
 
-        // панель, содержащая поля формы
+        // панель, содержащая поля формы добавления автомобилей
         final VerticalPanel carAddPanel = new VerticalPanel();
         carAddPanel.setSpacing(10);
 
+        // добавление полей ввода для формы автомобилей
         final TextBox carModel = new TextBox();
         carModel.setWidth(TEXTBOX_LENGTH);
         carModel.setName("carModelTextBox");
+        carModel.getElement().setPropertyString("placeholder", "Car model");
         carAddPanel.add(carModel);
 
         final TextBox carRegplate = new TextBox();
         carRegplate.setWidth(TEXTBOX_LENGTH);
         carRegplate.setName("carRegplateTextBox");
+        carRegplate.getElement().setPropertyString("placeholder", "Car regpalte");
         carAddPanel.add(carRegplate);
 
         final TextBox carYear = new TextBox();
         carYear.setWidth(TEXTBOX_LENGTH);
         carYear.setName("carYearTextBox");
+        carYear.getElement().setPropertyString("placeholder", "Car year");
         carAddPanel.add(carYear);
 
         final TextBox carPrice = new TextBox();
         carPrice.setWidth(TEXTBOX_LENGTH);
         carPrice.setName("carPriceTextBox");
+        carPrice.getElement().setPropertyString("placeholder", "Car price");
         carAddPanel.add(carPrice);
 
+        // добавление кнопки сабмита для формы автомобилей
         carAddPanel.add(new Button("Submit", new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
@@ -47,6 +54,7 @@ public class Client implements EntryPoint {
             }
         }));
 
+        // добавление ивент-хэндлеров, кодировки и метода отправки запроса
         carAddForm.setEncoding(FormPanel.ENCODING_MULTIPART);
         carAddForm.setMethod(FormPanel.METHOD_POST);
         carAddForm.setWidget(carAddPanel);
@@ -61,12 +69,23 @@ public class Client implements EntryPoint {
             @Override
             public void onSubmitComplete(FormPanel.SubmitCompleteEvent event) {
                 // code goes here
-                Window.alert("Submitted!");
             }
         });
 
-        DecoratorPanel dp = new DecoratorPanel();
-        dp.add(carAddForm);
-        RootPanel.get("car-form").add(dp);
+        // добавление формы автомобилей в рут-панель
+        DecoratorPanel cardp = new DecoratorPanel();
+        cardp.add(carAddForm);
+        RootPanel.get("car-form").add(cardp);
+
+        // -------------------------------------------------------------------
+        // форма добавления владельцев
+        final FormPanel ownerAddForm = new FormPanel();
+
+        // панель, содержащая поля формы добавления владельцев
+        final VerticalPanel ownerAddPanel = new VerticalPanel();
+        ownerAddPanel.setSpacing(10);
+
+        // добавление полей ввода формы владельцев
+
     }
 }
