@@ -2,18 +2,21 @@ package builder;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.FormPanel;
+import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
- * Created by antonyvol on 11.04.16.
+ * Created by antonyvol on 12.04.16.
  */
-public class CarFormBuilder {
+public class TradeFormBuilder {
     final String TEXTBOX_LENGTH = "220";
     private FormPanel form;
     private VerticalPanel vpanel;
     private Button button;
 
-    public CarFormBuilder() {
+    public TradeFormBuilder() {
         form = new FormPanel();
         vpanel = new VerticalPanel();
         button = new Button("Submit");
@@ -26,10 +29,10 @@ public class CarFormBuilder {
         });
 
         vpanel.setSpacing(10);
-        vpanel.add(setFormRow("Car model"));
-        vpanel.add(setFormRow("Car regpalte"));
-        vpanel.add(setFormRow("Car year"));
-        vpanel.add(setFormRow("Car price"));
+        vpanel.add(setFormRow("Seller"));
+        vpanel.add(setFormRow("Customer"));
+        vpanel.add(setFormRow("Car"));
+        vpanel.add(setFormRow("Date"));
         vpanel.add(button);
 
         form.setEncoding(FormPanel.ENCODING_MULTIPART);

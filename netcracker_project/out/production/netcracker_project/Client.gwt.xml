@@ -3,7 +3,8 @@
 <module>
 
     <inherits name='com.google.gwt.user.User'/>
-
+    <source path="client"/>
+    <source path="builder"/>
     <entry-point class='client.Client'/>
 
 </module>
