@@ -1,11 +1,17 @@
 package builder;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FormPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import server.TradeAddServiceImpl;
+import client.TradeAddService;
+import client.TradeAddServiceAsync;
 
 /**
  * Created by antonyvol on 12.04.16.
@@ -42,6 +48,18 @@ public class TradeFormBuilder {
             @Override
             public void onSubmit(FormPanel.SubmitEvent event) {
                 // validation goes here
+                TradeAddServiceAsync addSvc = GWT.create(TradeAddService.class);
+                addSvc.update(new AsyncCallback<Void>() {
+                    @Override
+                    public void onFailure(Throwable caught) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(Void result) {
+                        Window.alert("Trade added!");
+                    }
+                });
             }
         });
         form.addSubmitCompleteHandler(new FormPanel.SubmitCompleteHandler() {

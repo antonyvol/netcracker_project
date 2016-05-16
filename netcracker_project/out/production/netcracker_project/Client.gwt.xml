@@ -6,5 +6,8 @@
     <source path="client"/>
     <source path="builder"/>
     <entry-point class='client.Client'/>
+    <servlet path="/CarAddService" class="server.CarAddServiceImpl"/>
+    <servlet path="/OwnerAddService" class="server.OwnerAddServiceImpl"/>
+    <servlet path="/TradeAddService" class="server.TradeAddServiceImpl"/>
 
 </module>

@@ -1,0 +1,26 @@
+body {
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    font-size: small;
+    margin: 8px;
+}
+
+h2 {
+    padding-left: 30px;
+}
+
+.car-form {
+    width: 33%;
+    float: left;
+}
+
+.owner-form {
+    width: 33%;
+    float: left;
+}
+
+.sell-form {
+    width: 33%;
+    float: left;
+}

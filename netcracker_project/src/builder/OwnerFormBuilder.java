@@ -1,11 +1,17 @@
 package builder;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FormPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import client.OwnerAddService;
+import client.OwnerAddServiceAsync;
+import server.OwnerAddServiceImpl;
 
 /**
  * Created by antonyvol on 12.04.16.
@@ -41,6 +47,18 @@ public class OwnerFormBuilder {
             @Override
             public void onSubmit(FormPanel.SubmitEvent event) {
                 // validation goes here
+                OwnerAddServiceAsync addSvc = GWT.create(OwnerAddService.class);
+                addSvc.update(new AsyncCallback<Void>() {
+                    @Override
+                    public void onFailure(Throwable caught) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(Void result) {
+                        Window.alert("Owner added!");
+                    }
+                });
             }
         });
         form.addSubmitCompleteHandler(new FormPanel.SubmitCompleteHandler() {
