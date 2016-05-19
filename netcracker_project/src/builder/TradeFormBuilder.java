@@ -35,14 +35,15 @@ public class TradeFormBuilder {
         });
 
         vpanel.setSpacing(10);
-        vpanel.add(setFormRow("Seller"));
-        vpanel.add(setFormRow("Customer"));
-        vpanel.add(setFormRow("Car"));
-        vpanel.add(setFormRow("Date"));
+        vpanel.add(setFormRow("Seller", "seller"));
+        vpanel.add(setFormRow("Customer", "customer"));
+        vpanel.add(setFormRow("Car", "car"));
+        vpanel.add(setFormRow("Date", "date"));
         vpanel.add(button);
 
         form.setEncoding(FormPanel.ENCODING_MULTIPART);
-        form.setMethod(FormPanel.METHOD_POST);
+        form.setMethod(FormPanel.METHOD_GET);
+        form.setAction("TradeAddService");
         form.setWidget(vpanel);
         form.addSubmitHandler(new FormPanel.SubmitHandler() {
             @Override
@@ -57,7 +58,7 @@ public class TradeFormBuilder {
 
                     @Override
                     public void onSuccess(Void result) {
-                        Window.alert("Trade added!");
+
                     }
                 });
             }
@@ -70,9 +71,10 @@ public class TradeFormBuilder {
         });
     }
 
-    private TextBox setFormRow(String str) {
+    private TextBox setFormRow(String str, String name) {
         TextBox tb = new TextBox();
         tb.setWidth(TEXTBOX_LENGTH);
+        tb.setName(name);
         tb.getElement().setPropertyString("placeholder", str);
         return tb;
     }

@@ -5,7 +5,10 @@
     <inherits name='com.google.gwt.user.User'/>
     <source path="client"/>
     <source path="builder"/>
+    <source path="server"/>
     <entry-point class='client.Client'/>
     <servlet path="/CarAddService" class="server.CarAddServiceImpl"/>
+    <servlet path="/OwnerAddService" class="server.OwnerAddServiceImpl"/>
+    <servlet path="/TradeAddService" class="server.TradeAddServiceImpl"/>
 
 </module>

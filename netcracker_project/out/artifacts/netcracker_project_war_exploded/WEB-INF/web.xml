@@ -6,11 +6,32 @@
            version="3.0">
 
     <servlet>
-        <servlet-name>Client CarAddService</servlet-name>
+        <servlet-name>CarAddService</servlet-name>
         <servlet-class>server.CarAddServiceImpl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OwnerAddService</servlet-name>
+        <servlet-class>server.OwnerAddServiceImpl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TradeAddService</servlet-name>
+        <servlet-class>server.TradeAddServiceImpl</servlet-class>
+    </servlet>
+
     <servlet-mapping>
-        <servlet-name>Client CarAddService</servlet-name>
+        <servlet-name>CarAddService</servlet-name>
         <url-pattern>/Client/CarAddService</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OwnerAddService</servlet-name>
+        <url-pattern>/Client/OwnerAddService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TradeAddService</servlet-name>
+        <url-pattern>/Client/TradeAddService</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>/Client/Client.html</welcome-file>
+    </welcome-file-list>
 </web-app>

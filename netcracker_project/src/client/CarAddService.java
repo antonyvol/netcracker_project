@@ -10,7 +10,7 @@ import com.google.gwt.core.client.GWT;
 @RemoteServiceRelativePath("CarAddService")
 public interface CarAddService extends RemoteService {
     void update();
-
+    
     /**
      * Utility/Convenience class.
      * Use CarAddService.App.getInstance() to access static instance of CarAddServiceAsync

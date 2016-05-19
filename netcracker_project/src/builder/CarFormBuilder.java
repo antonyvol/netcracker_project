@@ -32,15 +32,15 @@ public class CarFormBuilder {
         });
 
         vpanel.setSpacing(10);
-        vpanel.add(setFormRow("Car model"));
-        vpanel.add(setFormRow("Car regpalte"));
-        vpanel.add(setFormRow("Car year"));
-        vpanel.add(setFormRow("Car price"));
+        vpanel.add(setFormRow("Car model", "model"));
+        vpanel.add(setFormRow("Car regplate", "regplate"));
+        vpanel.add(setFormRow("Car year", "year"));
+        vpanel.add(setFormRow("Car price", "price"));
         vpanel.add(button);
 
         form.setEncoding(FormPanel.ENCODING_MULTIPART);
-        form.setMethod(FormPanel.METHOD_POST);
-        form.setAction("http://127.0.0.1:8888/Client/CarAddService");
+        form.setMethod(FormPanel.METHOD_GET);
+        form.setAction("CarAddService");
         form.setWidget(vpanel);
         form.addSubmitHandler(new FormPanel.SubmitHandler() {
             @Override
@@ -52,7 +52,6 @@ public class CarFormBuilder {
                     public void onFailure(Throwable caught) {
 
                     }
-
                     @Override
                     public void onSuccess(Void result) {
 
@@ -64,14 +63,14 @@ public class CarFormBuilder {
             @Override
             public void onSubmitComplete(FormPanel.SubmitCompleteEvent event) {
                 // code goes here
-                Window.alert("Car added!" + event.getResults().toString());
             }
         });
     }
 
-    private TextBox setFormRow(String str) {
+    private TextBox setFormRow(String str, String name) {
         TextBox tb = new TextBox();
         tb.setWidth(TEXTBOX_LENGTH);
+        tb.setName(name);
         tb.getElement().setPropertyString("placeholder", str);
         return tb;
     }

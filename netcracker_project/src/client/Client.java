@@ -6,6 +6,8 @@ import builder.TradeFormBuilder;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.*;
 
+import java.sql.Connection;
+
 /**
  * Created by antonyvol on 07.04.16.
  */

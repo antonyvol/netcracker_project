@@ -35,13 +35,14 @@ public class OwnerFormBuilder {
         });
 
         vpanel.setSpacing(10);
-        vpanel.add(setFormRow("Owner firstname"));
-        vpanel.add(setFormRow("Owner lastname"));
-        vpanel.add(setFormRow("Owner car"));
+        vpanel.add(setFormRow("Owner firstname", "firstname"));
+        vpanel.add(setFormRow("Owner lastname", "lastname"));
+        vpanel.add(setFormRow("Owner car", "car"));
         vpanel.add(button);
 
         form.setEncoding(FormPanel.ENCODING_MULTIPART);
-        form.setMethod(FormPanel.METHOD_POST);
+        form.setMethod(FormPanel.METHOD_GET);
+        form.setAction("OwnerAddService");
         form.setWidget(vpanel);
         form.addSubmitHandler(new FormPanel.SubmitHandler() {
             @Override
@@ -56,7 +57,7 @@ public class OwnerFormBuilder {
 
                     @Override
                     public void onSuccess(Void result) {
-                        Window.alert("Owner added!");
+
                     }
                 });
             }
@@ -69,9 +70,10 @@ public class OwnerFormBuilder {
         });
     }
 
-    private TextBox setFormRow(String str) {
+    private TextBox setFormRow(String str, String name) {
         TextBox tb = new TextBox();
         tb.setWidth(TEXTBOX_LENGTH);
+        tb.setName(name);
         tb.getElement().setPropertyString("placeholder", str);
         return tb;
     }
